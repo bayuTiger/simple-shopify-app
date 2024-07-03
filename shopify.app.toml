@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "946360ae1d8a6bd18b83792e300f02be"
+name = "simple-app"
+handle = "simple-app-89"
+application_url = "https://mn-magnet-irs-arts.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "quickstart-2d9f9556.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://mn-magnet-irs-arts.trycloudflare.com/auth/callback",
+  "https://mn-magnet-irs-arts.trycloudflare.com/auth/shopify/callback",
+  "https://mn-magnet-irs-arts.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
